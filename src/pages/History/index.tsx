@@ -29,25 +29,10 @@ export function History() {
               return (
                 <tr key={cycle.id}>
                   <td>{cycle.task}</td>
-                  <td>
-                    {cycle.finishedDate &&
-                      formatDistanceStrict(
-                        new Date(cycle.startDate),
-                        new Date(cycle.finishedDate),
-                        { unit: 'minute' },
-                      )}
-
-                    {!cycle.finishedDate &&
-                      formatDistanceStrict(
-                        new Date(cycle.startDate),
-                        new Date(),
-                        {
-                          unit: 'minute',
-                        },
-                      )}
-                  </td>
+                  <td>{cycle.minutesAmount} minutos</td>
                   <td>
                     {formatDistanceToNow(new Date(cycle.startDate), {
+                      addSuffix: true,
                       locale: ptBR,
                     })}
                   </td>
